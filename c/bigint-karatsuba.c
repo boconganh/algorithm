@@ -43,6 +43,13 @@ void show(const bigint *a){
 	printf("\n");
 }
 
+void copy(const bigint *source,bigint *dest){
+	int i;
+	for(i=0;i<source->len;++i){
+		dest->digit[i]=source->digit[i];
+	}
+	dest->len=source->len;
+}
 void trim(bigint *a){
 	while(a->len && a->digit[a->len-1]==0) a->len--;
 }
@@ -117,7 +124,7 @@ void mul_naive(const bigint *a,const bigint *b,bigint *c){
 		shift(&res,1);
 		add(&res,&t,&res);
 	}
-	*c=res;
+	copy(&res,c);
 }
 
 void split_at(const bigint *a,int k,bigint *lo,bigint *hi){
@@ -159,7 +166,7 @@ void mul_karatsuba(const bigint *a,const bigint *b,bigint *c){
 	shift(&t2,m2);
 	add(&z0,&z2,&z0);
 	add(&z0,&t2,&z0);
-	*c=z0;
+	copy(&z0,c);
 	
 }
 int main() {
