@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 long pow(long n,long k){
 	if(k==0) return 1;
 	long t=pow(n,k/2);
