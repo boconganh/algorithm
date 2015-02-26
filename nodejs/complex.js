@@ -12,15 +12,7 @@ function Complex (r,i) {
 
 
 Complex.prototype={
-	toString : function () {
-		if(this.i>0) {
-			return this.r+"+"+this.i+"i";
-		}else if(this.i<0){
-			return this.r+""+this.i+"i";
-		}
-		
-		return this.r;
-	},
+	
 	add:function(o) {
 		return Complex(this.r+o.r,this.i+o.i);
 	},
@@ -38,4 +30,4 @@ var a= Complex(1,2);
 
 var b=Complex(3,5);
 
-log(a.conj().toString());
+log(a.conj());
