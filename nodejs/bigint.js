@@ -313,7 +313,7 @@ Num.prototype.sub=function (o){
             res.sign=this.sign;
         }else{
             res=o._sub(this);
-            res.sign=-this;
+            res.sign=-this.sign;
         }
         return res;
     }
